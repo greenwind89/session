@@ -508,6 +508,14 @@ function getcookie(req, name, secrets) {
       }
     }
   }
+  
+  // @author Minh Truong /
+  // This line is to build session for request from mobile devices
+  if (!val && req.query) {
+    if(req.query.session_id) {
+      val = req.query.session_id; 
+    }
+  }
 
   return val;
 }
